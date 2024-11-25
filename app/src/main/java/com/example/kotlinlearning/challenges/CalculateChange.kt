@@ -32,10 +32,10 @@ fun currencyDenominations(change:Float):String{
         val (value,name)=denomination
         var count = (remainingChange/value).toInt()
 
-        if(count>0){
+        while (count > 0) {
             result.add(name)
-            remainingChange -= count * value
-
+            remainingChange -= value
+            count = (remainingChange / value).toInt()
         }
     }
 
